@@ -1,7 +1,7 @@
 import {Model} from 'mongoose';
 
 export interface UserFields {
-  username: string;
+  user: string;
   password: string;
   token: string;
 }
