@@ -19,7 +19,7 @@ const config = {
   rootPath,
   corsOptions,
   publicPath: path.join(rootPath, 'public'),
-  database: 'mongodb://localhost/mySpotify',
+  database: 'mongodb://localhost/todo',
 };
 
 export default config;
