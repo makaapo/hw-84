@@ -1,7 +1,6 @@
 import express from 'express';
 import User from '../models/User';
 import mongoose from 'mongoose';
-import auth, {RequestWithUser} from '../middleware/auth';
 
 const userRouter = express.Router();
 
@@ -40,17 +39,6 @@ userRouter.post('/sessions', async (req, res, next) => {
     await user.save();
 
     return res.send({message: 'Username and password are correct!', user});
-  } catch (e) {
-    next(e);
-  }
-});
-
-userRouter.get('/secret', auth, async (req: RequestWithUser, res, next) => {
-  try {
-    if (!req.user) {
-      return res.status(401).send({error: 'User not found'});
-    }
-    return res.send('Secret text, username = ' + req.user?.user);
   } catch (e) {
     next(e);
   }
